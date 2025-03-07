@@ -1,0 +1,45 @@
+# Definición de la clase Libro
+class Libro:
+    def __init__(self, titulo, autor, isbn):
+        self.titulo = titulo
+        self.autor = autor
+        self.isbn = isbn
+
+# Definición de la clase Usuario
+class Usuario:
+    def __init__(self, nombre, id_usuario):
+        self.nombre = nombre
+        self.id_usuario = id_usuario
+        self.libros_prestados = []
+
+    def prestar_libro(self, libro):
+        self.libros_prestados.append(libro)
+        print(f"Libro '{libro.titulo}' prestado a {self.nombre}.")
+
+    def devolver_libro(self, libro):
+        self.libros_prestados.remove(libro)
+        print(f"Libro '{libro.titulo}' devuelto por {self.nombre}.")
+
+# Creación de los libros
+libro1 = Libro("Fundación", "Isaac Asimov", "978-84-206-3980-4")
+libro2 = Libro("Solaris", "Stanislaw Lem", "978-84-339-6747-5")
+libro3 = Libro("Relations de pouvoir et mouvement populaire en Colombie", "Leopoldo Múnera", "978-958-774-123-4")
+libro4 = Libro("Autobiografía: La historia de una burra", "Dolly Montoya", "978-958-774-567-6")
+
+# Creación de los usuarios
+usuario1 = Usuario("Gustavo Adolfo Mejía", 1)
+usuario2 = Usuario("Luis Felipe Acevedo", 2)
+usuario3 = Usuario("Leopoldo Múnera", 3)
+usuario4 = Usuario("Dolly Montoya", 4)
+
+# Usuarios prestan libros
+usuario1.prestar_libro(libro1)  # Gustavo Adolfo Mejía saca "Fundación"
+usuario2.prestar_libro(libro2)  # Luis Felipe Acevedo saca "Solaris"
+usuario3.prestar_libro(libro3)  # Leopoldo Múnera saca "Relations de pouvoir..."
+usuario4.prestar_libro(libro4)  # Dolly Montoya saca "Autobiografía..."
+
+# Usuarios devuelven libros
+usuario1.devolver_libro(libro1)  # Gustavo Adolfo Mejía devuelve "Fundación"
+usuario2.devolver_libro(libro2)  # Luis Felipe Acevedo devuelve "Solaris"
+usuario3.devolver_libro(libro3)  # Leopoldo Múnera devuelve "Relations de pouvoir..."
+usuario4.devolver_libro(libro4)  # Dolly Montoya devuelve "Autobiografía..."
